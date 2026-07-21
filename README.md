@@ -17,4 +17,12 @@ Create a production build with:
 npm run build
 ```
 
-The website is deployed through the Mohave Integrity Netlify project.
+The default build targets Sites/Cloudflare. Netlify uses the native Next.js
+build configured in `netlify.toml`:
+
+```bash
+npm run build:netlify
+```
+
+Do not override Netlify's publish directory in the dashboard. The Next.js
+adapter deploys the application from `.next` and provides the server routes.

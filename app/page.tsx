@@ -5,7 +5,7 @@ const services = [
   ["04", "Owner reporting", "Straightforward statements and useful updates, so you always know how your property is performing."],
 ];
 
-const process = [
+const managementSteps = [
   ["Listen", "We learn your property, priorities, and what a successful management relationship looks like to you."],
   ["Prepare", "We assess the home, recommend a rental strategy, and build a clear plan for launch or transition."],
   ["Manage", "We handle the daily details with consistent communication and an owner-first point of view."],
@@ -95,7 +95,7 @@ export default function Home() {
           <h2>A clear path to<br /><em>better management.</em></h2>
         </div>
         <div className="process-grid">
-          {process.map(([title, text], index) => (
+          {managementSteps.map(([title, text], index) => (
             <article key={title}><b>0{index + 1}</b><h3>{title}</h3><p>{text}</p></article>
           ))}
         </div>
