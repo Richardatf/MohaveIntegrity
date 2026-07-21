@@ -12,6 +12,8 @@ const process = [
 ];
 
 export default function Home() {
+  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
+  const phoneHref = phoneNumber?.replace(/[^+\d]/g, "");
   return (
     <main>
       <header className="nav-shell">
@@ -112,7 +114,11 @@ export default function Home() {
         </div>
         <div className="contact-card">
           <p>Tell us a little about your property and what you&apos;re looking for. We&apos;ll help you understand the next best step.</p>
-          <a className="button button-dark" href="mailto:info@mohaveintegrity.com?subject=Property%20management%20inquiry">Email our team <span>→</span></a>
+          <div className="contact-actions">
+            {phoneNumber && phoneHref ? <a className="button button-rust" href={`tel:${phoneHref}`}>Call our AI receptionist <span>→</span></a> : null}
+            <a className="button button-dark" href="mailto:info@mohaveintegrity.com?subject=Property%20management%20inquiry">Email our team <span>→</span></a>
+          </div>
+          {phoneNumber ? <strong className="phone-number">{phoneNumber} · Available 24/7</strong> : null}
           <small>Serving Kingman and the surrounding Mohave County community.</small>
         </div>
       </section>
